@@ -182,6 +182,17 @@ public extension Date {
         let componentsWithoutSeconds = calendar.dateComponents(components, from: self)
         return calendar.date(from: componentsWithoutSeconds) ?? self
     }
+    
+    /// Returns the date components from a date
+    func get(_ components: Calendar.Component..., calendar: Calendar = Calendar.current) -> DateComponents {
+        return calendar.dateComponents(Set(components), from: self)
+    }
+    
+    /// Returns the Int value for the given component of the date
+    func get(_ component: Calendar.Component, calendar: Calendar = Calendar.current) -> Int {
+        return calendar.component(component, from: self)
+    }
+    
 }
 
 // MARK: - Initialisers
